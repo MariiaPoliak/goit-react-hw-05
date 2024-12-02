@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
-import styles from "./MoviesPage.module.css";
+import styles from "./NotFoundPage.module.css";
 
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
