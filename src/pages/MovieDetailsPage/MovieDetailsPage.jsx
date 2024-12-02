@@ -5,7 +5,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
 import { defaultImg } from "../../components/Poster/Poster";
@@ -22,7 +22,7 @@ const MovieDetailsPage = () => {
   const apiToken =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzRiMWNjMjgwYmIxMTFkNjZiNjVmMzMxNTYwOGUyOCIsIm5iZiI6MTczMzA1NDU1Ny4zLCJzdWIiOiI2NzRjNTA1ZDU3YTBlNTBhMDVlOGYzZTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.PQiYNmC_euxjpChVCg-mng5XFDc97kV6sW5C9vfCuf4";
 
-  const from = location.state?.from || "/movies";
+  const from = useRef(location.state?.from || "/movies"); // useRef
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -62,7 +62,10 @@ const MovieDetailsPage = () => {
   return (
     <div className={styles.containerMovie}>
       {/* кнопка */}
-      <button className={styles.goBackButton} onClick={() => navigate(from)}>
+      <button
+        className={styles.goBackButton}
+        onClick={() => navigate(from.current)}
+      >
         Go back
       </button>
       <h2>{movie.title}</h2>
@@ -72,7 +75,7 @@ const MovieDetailsPage = () => {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : defaultImg // Use defaultImg
+              : defaultImg // Використання defaultImg
           }
           alt={movie.title}
           className={styles.posterDefault}
@@ -84,11 +87,11 @@ const MovieDetailsPage = () => {
       </div>
 
       <nav>
-        <Link to="cast" state={{ from }}>
+        <Link to="cast" state={{ from: from.current }}>
           Movie Cast
         </Link>{" "}
         |
-        <Link to="reviews" state={{ from }}>
+        <Link to="reviews" state={{ from: from.current }}>
           Movie Reviews
         </Link>
       </nav>

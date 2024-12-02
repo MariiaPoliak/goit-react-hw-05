@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import Loader from "./components/Loader/Loader";
@@ -14,7 +14,7 @@ const MovieReviews = lazy(() => import("./pages/MovieReviews/MovieReviews"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App = () => (
-  <BrowserRouter>
+  <>
     <Navigation />
     <Suspense fallback={<Loader />}>
       <Routes>
@@ -27,7 +27,7 @@ const App = () => (
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
-  </BrowserRouter>
+  </>
 );
 
 export default App;

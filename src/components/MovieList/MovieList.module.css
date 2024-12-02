@@ -27,18 +27,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 200px;
+  padding-top: 10px;
 }
 
 .moviePoster {
-  width: 100%;
+  width: 150px;
   height: auto;
 }
-
 .movieTitle {
   font-size: 12px;
   text-align: center;
   color: #444;
   transition: color 0.2s ease;
+  white-space: normal; /* Дозволяє перенос тексту */
+  word-wrap: break-word; /* Розриває слова, якщо вони занадто довгі */
+  margin-top: 10px; /* Додає відступ для відокремлення від постера */
 }
 
 .movieLink:hover .movieTitle {

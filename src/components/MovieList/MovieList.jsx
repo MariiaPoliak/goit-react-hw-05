@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "./MovieList.module.css";
+import { defaultImg } from "../../components/Poster/Poster";
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const MovieList = ({ movies }) => {
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
-                  : "https://via.placeholder.com/200x300?text=No+Image"
+                  : defaultImg // дефолтний постер
               }
               alt={movie.title}
               className={styles.moviePoster}

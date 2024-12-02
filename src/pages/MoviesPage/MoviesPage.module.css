@@ -29,3 +29,17 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.moviePoster {
+  width: 150px;
+  height: 250px;
+}
+.movieTitle {
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  transition: color 0.2s ease;
+  white-space: normal; /* Дозволяє перенос тексту */
+  word-wrap: break-word; /* Розриває слова, якщо вони занадто довгі */
+  margin-top: 10px; /* Додає відступ для відокремлення від постера */
+}
