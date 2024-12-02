@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import { defaultImg } from "../../components/Poster/Poster";
 import styles from "./MovieCast.module.css";
 
 const MovieCast = () => {
@@ -52,8 +53,9 @@ const MovieCast = () => {
             src={
               actor.profile_path
                 ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                : "https://via.placeholder.com/200x300"
+                : defaultImg // Використовуємо defaultImg
             }
+            width={150}
             alt={actor.name}
           />
           <p>{actor.name}</p>

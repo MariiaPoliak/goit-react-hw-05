@@ -96,7 +96,9 @@ p {
     width: 100%;
     height: auto; /* Allow the image to scale */
   }
-
+  .posterDefault {
+    height: 100px;
+  }
   .overview {
     padding-left: 10px;
     padding-right: 10px;

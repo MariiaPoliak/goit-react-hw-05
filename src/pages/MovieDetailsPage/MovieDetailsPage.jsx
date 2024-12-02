@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import { defaultImg } from "../../components/Poster/Poster";
 import styles from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
@@ -71,10 +72,10 @@ const MovieDetailsPage = () => {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : "https://via.placeholder.com/500x750"
+              : defaultImg // Use defaultImg
           }
           alt={movie.title}
-          className={styles.poster}
+          className={styles.posterDefault}
         />
 
         <div className={styles.overview}>
