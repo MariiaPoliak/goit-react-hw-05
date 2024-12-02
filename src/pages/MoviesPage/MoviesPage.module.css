@@ -14,6 +14,7 @@
   width: 300px;
   border: 1px solid #750808;
   background-color: floralwhite;
+  color: black;
 }
 .form:active,
 .form:focus {
